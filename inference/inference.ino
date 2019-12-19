@@ -1,6 +1,5 @@
 #include<math.h>
 #include<string.h>
-#include <WiFi.h> //Connect to WiFi Network
 #include <TFT_eSPI.h> // Graphics and font library for ST7735 driver chip
 #include <SPI.h>
 #include <Wire.h>
@@ -107,25 +106,6 @@ void setup(void)
   Wire.begin();
   delay(50); //pause to make sure comms get set up
 
-  WiFi.begin(network); //attempt to connect to wifi
-  uint8_t count = 0; //count used for Wifi check times
-  Serial.print("Attempting to connect to ");
-  Serial.println(network);
-  while (WiFi.status() != WL_CONNECTED && count<6) {
-    delay(500);
-    Serial.print(".");
-    count++;
-  }
-  delay(2000);
-  if (WiFi.isConnected()) { //if we connected then print our IP, Mac, and SSID we're on
-    Serial.println("CONNECTED!");
-    Serial.println(WiFi.localIP().toString() + " (" + WiFi.macAddress() + ") (" + WiFi.SSID() + ")");
-    delay(500);
-  } else { //if we failed to connect just Try again.
-    Serial.println("Failed to Connect :/  Going to restart");
-    Serial.println(WiFi.status());
-    ESP.restart(); // restart the ESP (proper way)
-  }
   pinMode(input_pin, INPUT_PULLUP);
   tft.init(); //initialize the screen
   tft.setRotation(2); //set rotation for our layout
