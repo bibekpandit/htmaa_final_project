@@ -40,28 +40,22 @@ void setup() {
 void loop() 
 {
   
-//  for(val = 255; val > 0; val--)
-//  {
-//    ledcWrite(channel_red, val);  //set PWM value for red
-//    ledcWrite(channel_blue, 255 - val); //set PWM value for blue
-//    ledcWrite(channel_green, 128 - val); //set PWM value for green
-//    Serial.println(val); //print current value 
-//    delay(15); 
-//  }
-//  for(val = 0; val < 255; val++)
-//  {
-//    ledcWrite(channel_red, val);
-//    ledcWrite(channel_blue, 255 - val);
-//    ledcWrite(channel_green, 128 - val);
-//    Serial.println(val);
-//    delay(15); 
-//  }
-
-  ledcWrite(channel_red, 128);
-  ledcWrite(channel_blue, 28);
-  ledcWrite(channel_green, 100);
-  Serial.println(val);
-  delay(15); 
+  for(val = 255; val > 0; val--)
+  {
+    ledcWrite(channel_red, val);  //set PWM value for red
+    ledcWrite(channel_blue, 255 - val); //set PWM value for blue
+    ledcWrite(channel_green, 128 - val); //set PWM value for green
+    Serial.println(val); //print current value 
+    delay(15); 
+  }
+  for(val = 0; val < 255; val++)
+  {
+    ledcWrite(channel_red, val);
+    ledcWrite(channel_blue, 255 - val);
+    ledcWrite(channel_green, 128 - val);
+    Serial.println(val);
+    delay(15); 
+  }
 
   Serial.println("Working");
 
